@@ -1,7 +1,6 @@
-import styles from "./Hero.module.css";
+import styles from "./Hero.module.sass";
 
 export const Hero = () => {
-  console.log(styles);
   return (
     <section className={styles.Hero}>
       <h1>Future World</h1>
