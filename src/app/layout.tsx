@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Manrope } from "next/font/google";
 import { Header } from "app/components/shared/Header";
 import { Footer } from "app/components/shared/Footer";
 import "app/sass/globals.sass";
-const inter = Inter({ subsets: ["latin"] });
+
+const manrope = Manrope({
+  weight: ["200", "300", "500", "600"],
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={manrope.className}>
         <Header />
         {children}
         <Footer />
