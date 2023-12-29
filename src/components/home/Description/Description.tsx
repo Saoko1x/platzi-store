@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import classNames from "classnames";
+import classNames from "classnames/bind";
 import { useState } from "react";
 import styles from "./Description.module.sass";
 
@@ -10,12 +10,15 @@ const PLACEHOLDER_IMAGE =
 export const Description = () => {
   const [hasBorder, setBorder] = useState(false);
   const handleClick = () => setBorder(!hasBorder);
-  // const buttonStyles = className('button')
 
-  console.log(hasBorder);
+  const cx = classNames.bind(styles);
+  const buttonStyles = cx("Description__button", {
+    "Description__button--border": hasBorder,
+  });
+
   return (
     <section className={styles.Description}>
-      <button onClick={handleClick} className={styles.Description__button}>
+      <button onClick={handleClick} className={buttonStyles}>
         <div className={styles.Description__imageContainer}>
           <Image
             src="/images/description.jpeg"
